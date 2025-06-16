@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/project-group-15/",
+    "build": "vite build --base=/rodl-temp/",
     "preview": "vite preview"
   },
   "devDependencies": {
