@@ -1,0 +1,141 @@
+  .aboutus{
+    padding-top: 30px;
+    padding-bottom: 30px;  
+  }
+
+  .aboutus-picture{
+    max-width:335px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutus-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutus-paragraf{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+  }
+
+  .aboutus-paragraf:not(:last-child){
+    margin-top: 28px;
+    margin-bottom: 20px;
+  }
+
+
+  .aboutus-content{
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .aboutus-button-div{
+    margin-top: 40px;
+  }
+
+@media screen and (min-width:767px){
+  .aboutus{
+    padding-top: 40px;
+    padding-bottom: 40px;  
+  }
+  .aboutus-picture{
+    max-width:768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutus-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap:40px;
+      min-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .aboutus-paragraf:not(:last-child){
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .aboutus-paragraf{
+    font-size: 16px;
+    line-height: 125%;
+  }
+  .aboutus-content{
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+
+.aboutus-button{
+  display: flex; /* Включаємо flex-контейнер */
+  align-items: center; /* Вирівнюємо по вертикалі */
+  justify-content: center; /* Вирівнюємо по горизонталі */ 
+  border-radius: 16px;
+  width: 160px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: #fbfbfb;
+  background-color: #3350e9;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.aboutus-button:hover, .aboutus-button:focus{
+  background-color: #1f3cd4;
+}
+
+@media screen and (min-width:1279px){
+  .aboutus{
+    padding-top: 50px;
+    padding-bottom: 50px;  
+  }
+  
+  .aboutus-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap:40px;
+      min-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .aboutus-picture{
+    width: 530px;
+    margin:0;
+  }
+  .aboutus-content{
+    max-width: 580px;
+  }
+
+  .aboutus-title{
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 92%;
+    letter-spacing: -0.02em;
+  }
+  
+  .aboutus-paragraf{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: -0.02em;
+  }
+}
+

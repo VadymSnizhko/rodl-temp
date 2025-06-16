@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Gilroy", sans-serif;
+  background-color: #fbfbfb;
+}
+
+main {
+  flex-grow: 1;
+}
+
+main:has(.back-link) {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
