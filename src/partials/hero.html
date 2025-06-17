@@ -1,29 +1,65 @@
+<style>
+   .hero-swiper {
+    /*width: 100%;
+    max-width: 800px;*/
+    height: 500px; /* Встанови потрібну висоту */
+    margin: 2rem auto;
+    border-radius: 20px;
+    overflow: hidden;
+    }
+  
+    .swiper-slide img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #007bff;
+    }
+  
+    .swiper-pagination-bullet-active {
+      background: #007bff;
+    }
+  </style>
 <section class="hero">
     <div class="container">
             <div class="hero-content-wrap">
                 <div class="hero-content">
-                 <h1 class="hero-title">Welcome to our <span class="hero-title-style">collection</span> of premium watches</h1>
-                 <p class="hero-text">Our watches are not just timepieces, but also an expression of your personality and lifestyle. From classic designs to
-                modern ones, we have a watch to suit every taste and occasion. </p>
+                 <h1 class="hero-title">Рівненська обласна дитяча лікарня</h1>
+                 <p class="hero-text">Сучасний багатопрофільний медичний заклад, що надає широкий високоспеціалізований та унікальний спектр медичних послуг дітям. Кваліфікація та досвід. Ми зібрали колектив досвідчених, висококваліфікованих лікарів та медичного персоналу, що постійно вдосконалюють свої професійні навички. Наші послуги доступні для всіх, хто шукає якісну медичну допомогу для своєї дитини. Докладніше</p>
                 </div>
-                <div class="hero-content-2">
-                    <ul class="hero-list">
-                        <li class="hero-card hero-card-1">
-                         <img class="hero-img" alt="link to coment 1" width="44" height="44" srcset="/images/hero/team_1.webp 1x, /images/hero/team_1@2.webp 2x"
-                        src="/images/hero/team_1.webp" >
-                        </li>
-                        <li class="hero-card hero-card-2">
-                            <img class="hero-img" alt="link to coment 2" width="44" height="44" srcset="/images/hero/team_2.webp 1x, /images/hero/team_2@2.webp 2x"
-                        src="/images/hero/team_2.webp" >
-                     </li>
-                        <li class="hero-card hero-card-3">
-                          <img class="hero-img" alt="link to coment 3" width="44" height="44" srcset="/images/hero/team_3.webp 1x, /images/hero/team_3@2.webp 2x"
-                        src="/images/hero/team_3.webp">
-                        </li>
-                    </ul>
-                     <a href="#footer" class="hero-scroll">Scroll down</a>
-                 </div>
             </div>
+
+    <!-- SWIPER -->
+    <div class="swiper hero-swiper">
+  <!--      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/images/hero/title_1.jpg" alt="Фото лікарні 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/hero/title_2.jpg" alt="Фото лікарні 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/hero/title_3.jpg" alt="Фото лікарні 3" />
+          </div>
+        </div> -->
+ 
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('/images/hero/title_1.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/images/hero/title_2.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/images/hero/title_3.jpg');"></div>
+          </div>
+  
+        <!-- Додаткові кнопки навігації -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>     
+<!-- 
             <picture >
                 <source media="(min-width:1280px)"
                 srcset="/images/hero/clock_3.webp 1x, /images/hero/clock_3@2.webp 2x">
@@ -32,6 +68,24 @@
                 <source media="(max-width:767px)"
                 srcset="/images/hero/clock_1.webp 1x, /images/hero/clock_1@2.webp 2x">
                 <img class="hero-picture" src="/images/hero/clock_1.webp" alt="Clock">
-            </picture>
+            </picture>-->
     </div>
     </section>
+
+    <script>
+        const swiper = new Swiper(".hero-swiper", {
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>

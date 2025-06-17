@@ -1,3 +1,4 @@
+import "./js/hero"
 (() => {
   const refs = {
     // Додати атрибут data-modal-open на кнопку відкриття
