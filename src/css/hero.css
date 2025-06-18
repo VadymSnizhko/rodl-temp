@@ -1,8 +1,63 @@
     .hero{
-        padding-top: 60px;
+        padding-top: 80px;
         padding-bottom: 30px;
     }
 
+    .hero-swiper {
+        /*width: 100%;
+        max-width: 800px;*/
+        height: 500px; /* Встанови потрібну висоту */
+        margin: 2rem auto;
+        border-radius: 20px;
+        overflow: hidden;
+        }
+      
+        .swiper-slide img {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        }
+      
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #007bff;
+        }
+      
+        .swiper-pagination-bullet-active {
+          background: #007bff;
+        }
+
+    .hero-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: space-between;
+    }
+
+    .hero-button{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .hero-button-service{
+        width: 240px;
+        height: 56px;
+        background-color: #00629b;
+        color: #fbfbfb;
+        border: 0px;
+        border-radius: 20px;
+        font-size: 16px;
+    }
+
+    .hero-button-service:hover{
+        background-color: #1375ae;
+    }
+    
 @media screen and (min-width:768px){
     .hero{
         padding-top: 100px;
@@ -11,8 +66,8 @@
 }
 
 .hero-content-wrap{
-    display: flex;
-    flex-direction: column;
+    /*display: flex;
+    flex-direction: column;*/
     gap: 28px;
     margin-bottom: 28px; 
     }
