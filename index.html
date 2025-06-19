@@ -14,10 +14,11 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script type="module" crossorigin src="/rodl-temp/index.js"></script>
     <link rel="modulepreload" crossorigin href="/rodl-temp/assets/vendor-C8mLK4Kr.js">
     <link rel="stylesheet" crossorigin href="/rodl-temp/assets/vendor-DHBATib1.css">
-    <link rel="stylesheet" crossorigin href="/rodl-temp/assets/index-CAs1Ri61.css">
+    <link rel="stylesheet" crossorigin href="/rodl-temp/assets/index-Bocu97se.css">
   </head>
   <body>
     <header class="header">
@@ -168,7 +169,19 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
     <main>
       <!-- Loads the specified .html file -->
-      
+      <!-- <script>
+    function updateSlideImages() {
+      const isMobile = window.innerWidth <= 767;
+      document.querySelectorAll('.swiper-slide').forEach(slide => {
+        const img = isMobile ? slide.dataset.imgMobile : slide.dataset.imgDesktop;
+        slide.style.backgroundImage = `url('${img}')`;
+      });
+    }
+  
+    window.addEventListener('load', updateSlideImages);
+    window.addEventListener('resize', updateSlideImages);
+  </script>-->
+  
 <section class="hero">
     <div class="container ">
     <div class="hero-container">
@@ -202,10 +215,43 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         </div> -->
  
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('/rodl-temp/assets/title_1-CxZreP1n.jpg');"></div>
-            <div class="swiper-slide" style="background-image: url('/rodl-temp/assets/title_2-CNjuV82X.jpg');"></div>
-            <div class="swiper-slide" style="background-image: url('/rodl-temp/assets/title_3-Cbbu4iAY.jpg');"></div>
-          </div>
+           <!-- <div class="swiper-slide" style="background-image: url('/images/hero/title_1.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/images/hero/title_2.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/images/hero/title_3.jpg');"></div>
+        -->
+            <div class="swiper-slide">
+                <picture>
+                  <source media="(min-width:1280px)" srcset="/rodl-temp/assets/title_1-CxZreP1n.jpg">
+                  <source media="(min-width:768px)" srcset="/rodl-temp/assets/title_1-CxZreP1n.jpg">
+                  <source media="(max-width:767px)" srcset="/rodl-temp/assets/title_1_mobile-xYApRU3l.jpg">
+                  <img src="/rodl-temp/assets/title_1-CxZreP1n.jpg" alt="title_1" class="hero-picture">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                  <picture>
+                    <source media="(min-width:1280px)" srcset="/rodl-temp/assets/title_2-CNjuV82X.jpg">
+                    <source media="(min-width:768px)" srcset="/rodl-temp/assets/title_2-CNjuV82X.jpg">
+                    <source media="(max-width:767px)" srcset="/rodl-temp/assets/title_2_mobile-BGMj6qQE.jpg">
+                    <img src="/rodl-temp/assets/title_2-CNjuV82X.jpg" alt="title_2" class="hero-picture">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                    <picture>
+                      <source media="(min-width:1280px)" srcset="/rodl-temp/assets/title_3-Cbbu4iAY.jpg">
+                      <source media="(min-width:768px)" srcset="/rodl-temp/assets/title_3-Cbbu4iAY.jpg">
+                      <source media="(max-width:767px)" srcset="/rodl-temp/assets/title_3_mobile-ClHo1Uco.jpg">
+                      <img src="/rodl-temp/assets/title_3-Cbbu4iAY.jpg" alt="title_3" class="hero-picture">
+                    </picture>
+                  </div>
+        
+        </div> 
+<!-- 
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_1.jpg" data-img-mobile="/images/hero/title_1_mobile.jpg"></div>
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_2.jpg" data-img-mobile="/images/hero/title_2_mobile.jpg"></div>
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_3.jpg" data-img-mobile="/images/hero/title_3_mobile.jpg"></div>
+          </div>-->
+          
   
         <!-- Додаткові кнопки навігації -->
         <div class="swiper-button-next"></div>
