@@ -41,18 +41,24 @@
         justify-content: center;
         gap: 40px;*/
         min-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
+        /*margin-left: auto;
+        margin-right: auto;*/
     }
 
     .hero-button{
         display: flex;
         flex-direction: column;
         gap: 16px;
-        width: 530px;
+        /*width: 530px;*/
 
         max-width: 768px;
     }
+@media screen and (min-width:768px){
+    .hero-button{
+        width: 530px;
+    }
+}
+
 
     .hero-button-service{
         width: 240px;
@@ -256,11 +262,11 @@
     }
 }
 .hero-picture{
-        /*border-radius: 30px;
-        width: 335px;
+        border-radius: 30px;
+        /*width: 335px;
         height: 366px;
-        background: rgba(12, 12, 12, 0.2);*/
-        width: 100%;
+        background: rgba(12, 12, 12, 0.2);
+        width: 100%;*/
         height: 500px; /* або потрібна висота */
         object-fit: cover;
 }
