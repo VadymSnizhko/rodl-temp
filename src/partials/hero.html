@@ -1,4 +1,16 @@
-
+<!-- <script>
+    function updateSlideImages() {
+      const isMobile = window.innerWidth <= 767;
+      document.querySelectorAll('.swiper-slide').forEach(slide => {
+        const img = isMobile ? slide.dataset.imgMobile : slide.dataset.imgDesktop;
+        slide.style.backgroundImage = `url('${img}')`;
+      });
+    }
+  
+    window.addEventListener('load', updateSlideImages);
+    window.addEventListener('resize', updateSlideImages);
+  </script>-->
+  
 <section class="hero">
     <div class="container ">
     <div class="hero-container">
@@ -32,10 +44,43 @@
         </div> -->
  
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('/images/hero/title_1.jpg');"></div>
+           <!-- <div class="swiper-slide" style="background-image: url('/images/hero/title_1.jpg');"></div>
             <div class="swiper-slide" style="background-image: url('/images/hero/title_2.jpg');"></div>
             <div class="swiper-slide" style="background-image: url('/images/hero/title_3.jpg');"></div>
-          </div>
+        -->
+            <div class="swiper-slide">
+                <picture>
+                  <source media="(min-width:1280px)" srcset="/images/hero/title_1.jpg">
+                  <source media="(min-width:768px)" srcset="/images/hero/title_1.jpg">
+                  <source media="(max-width:767px)" srcset="/images/hero/title_1_mobile.jpg">
+                  <img src="/images/hero/title_1.jpg" alt="title_1" class="hero-picture">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                  <picture>
+                    <source media="(min-width:1280px)" srcset="/images/hero/title_2.jpg">
+                    <source media="(min-width:768px)" srcset="/images/hero/title_2.jpg">
+                    <source media="(max-width:767px)" srcset="/images/hero/title_2_mobile.jpg">
+                    <img src="/images/hero/title_2.jpg" alt="title_2" class="hero-picture">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                    <picture>
+                      <source media="(min-width:1280px)" srcset="/images/hero/title_3.jpg">
+                      <source media="(min-width:768px)" srcset="/images/hero/title_3.jpg">
+                      <source media="(max-width:767px)" srcset="/images/hero/title_3_mobile.jpg">
+                      <img src="/images/hero/title_3.jpg" alt="title_3" class="hero-picture">
+                    </picture>
+                  </div>
+        
+        </div> 
+<!-- 
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_1.jpg" data-img-mobile="/images/hero/title_1_mobile.jpg"></div>
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_2.jpg" data-img-mobile="/images/hero/title_2_mobile.jpg"></div>
+            <div class="swiper-slide" data-img-desktop="/images/hero/title_3.jpg" data-img-mobile="/images/hero/title_3_mobile.jpg"></div>
+          </div>-->
+          
   
         <!-- Додаткові кнопки навігації -->
         <div class="swiper-button-next"></div>

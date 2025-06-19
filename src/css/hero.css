@@ -30,18 +30,28 @@
         }
 
     .hero-container{
-        display: flex;
+        /*display: flex;
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
         gap: 16px;
-        justify-content: space-between;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;*/
+        min-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-button{
         display: flex;
         flex-direction: column;
         gap: 16px;
+        width: 530px;
+
+        max-width: 768px;
     }
 
     .hero-button-service{
@@ -62,7 +72,16 @@
     .hero{
         padding-top: 100px;
         padding-bottom: 40px;
-    }  
+    } 
+    .hero-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        min-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    } 
 }
 
 .hero-content-wrap{
@@ -237,10 +256,13 @@
     }
 }
 .hero-picture{
-        border-radius: 30px;
+        /*border-radius: 30px;
         width: 335px;
         height: 366px;
-        background: rgba(12, 12, 12, 0.2);
+        background: rgba(12, 12, 12, 0.2);*/
+        width: 100%;
+        height: 500px; /* або потрібна висота */
+        object-fit: cover;
 }
 
 @media screen and (min-width:768px){
