@@ -1,0 +1,14 @@
+.faq{    
+    display: flex;
+    justify-content: center;
+}
+
+.reviews_m{    
+    display: flex;
+    justify-content: center;
+}
+
+.news{    
+    display: flex;
+    justify-content: center;
+}
