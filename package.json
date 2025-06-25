@@ -17,6 +17,7 @@
   "author": "Vadym Snizhko <snizhko@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accordion-js": "^3.4.1",
     "izitoast": "^1.4.0",
     "swiper": "^11.2.8",
     "vite-plugin-full-reload": "^1.2.0",
