@@ -1,12 +1,12 @@
 <!--https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec
--->
+
 <div id="reviews"></div>
 <script>
 console.log("ok");
 </script>
 
 <script>
-fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exechttps://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec")
+fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("reviews");
@@ -15,12 +15,157 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
     data.forEach(r => {
       container.innerHTML += `
         <div class="review">
-          <h4>${r["Автор"]}</h4>
-          <p>⭐️ ${r["Рейтинг"]}/5</p>
-          <p>${r["Текст відгуку"]}</p>
-          <small>${r["Дата"]}</small>
+          <h4>${r["name"]}</h4>
+          <p>⭐️ ${r["reiting"]}/5</p>
+          <p>${r["text"]}</p>
+          <small>${r["data"]}</small>
           <hr>
         </div>`;
     });
   });
-</script>
+</script>-->
+
+<!-- NEW-->
+
+<style>
+    .review-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+      padding-block: 1rem; /* тільки зверху/знизу */
+    }
+  
+    .review {
+      flex: 0 0 calc(100% / 4 - 1rem);
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      scroll-snap-align: start;
+      min-width: 240px;
+      height: 240px; /* 🔒 Фіксована висота */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  
+    .stars {
+      color: #fbbc04;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+  
+    .author {
+        color: #1a73e8;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+  
+    .date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+  
+    .text {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      padding-right: 4px; /* Щоб не обтинало скрол */
+    }
+  
+    /* Горизонтальний скрол плавний */
+    .review-container::-webkit-scrollbar {
+      height: 6px;
+    }
+  
+    .review-container::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 3px;
+    }
+  
+    .text::-webkit-scrollbar {
+      width: 6px;
+    }
+  
+    .text::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 3px;
+    }
+  
+    @media (max-width: 1024px) {
+      .review { flex: 0 0 calc(100% / 2 - 1rem); }
+    }
+  
+    @media (max-width: 640px) {
+      .review { flex: 0 0 100%; }
+    }
+
+    .link_to_googlereviews{
+        color: #1a73e8;
+        padding: 10px 0px;
+    }
+  </style>
+  
+  <div class="container">
+    <h2>Відгуки про нас</h2>
+    <div class="review-container" id="reviews">
+    </div>
+    <br>
+    <a class="link_to_googlereviews" href="https://maps.app.goo.gl/LNZZ1C8jw1tr2AEV6" target="_blank">
+        Переглянути відгуки в Google
+      </a>
+  </div>
+  
+  <script>
+  function timeAgo(dateStr) {
+    const now = new Date();
+    const then = new Date(dateStr);
+    const diffMs = now - then;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  
+    if (diffDays < 1) return "сьогодні";
+    if (diffDays < 7) return `${diffDays} дн${diffDays === 1 ? "ь" : "і"} тому`;
+    if (diffDays < 30) {
+      const weeks = Math.floor(diffDays / 7);
+      return `${weeks} тиж${weeks === 1 ? "день" : "ні"} тому`;
+    }
+    if (diffDays < 365) {
+      const months = Math.floor(diffDays / 30);
+      return `${months} міс. тому`;
+    }
+    const years = Math.floor(diffDays / 365);
+    return `${years} р${years > 1 ? "оки" : "ік"} тому`;
+  }
+  
+  function getStars(rating) {
+    const full = '★'.repeat(Math.round(rating));
+    const empty = '☆'.repeat(5 - Math.round(rating));
+    return full + empty;
+  }
+  
+  fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("reviews");
+      data.forEach(r => {
+        const stars = getStars(r["reiting"]);
+        const date = timeAgo(r["date"]);
+        container.innerHTML += `
+          <div class="review">
+            <div class="author">${r["name"]}</div>
+            <div class="stars">${stars}</div>
+            <div class="date">${date}</div>
+            <div class="text">${r["text"]}</div>
+          </div>`;
+      });
+    })
+    .catch(err => {
+      console.error("Помилка завантаження відгуків:", err);
+    });
+  </script>
+  
