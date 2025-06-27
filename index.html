@@ -692,36 +692,44 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   </div>
 </section>
 -->
-      <!--https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec
-
-<div id="reviews"></div>
-<script>
-console.log("ok");
-</script>
-
-<script>
-fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("reviews");
-    console.log(data);
+      <style>
+    .reviews-title{
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #0c0c0c;
+        text-transform: none;
+        padding-bottom: 24px;
+        padding-top: 24px;
+        text-align: start;
+    }
+    @media screen and  (min-width: 640px) {
+        .reviews-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
     
-    data.forEach(r => {
-      container.innerHTML += `
-        <div class="review">
-          <h4>${r["name"]}</h4>
-          <p>⭐️ ${r["reiting"]}/5</p>
-          <p>${r["text"]}</p>
-          <small>${r["data"]}</small>
-          <hr>
-        </div>`;
-    });
-  });
-</script>-->
+    @media screen and (min-width: 1024px) {
+        .reviews-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
 
-<!-- NEW-->
-
-<style>
     .review-container {
       display: flex;
       gap: 1rem;
@@ -791,11 +799,11 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
       border-radius: 3px;
     }
   
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
       .review { flex: 0 0 calc(100% / 2 - 1rem); }
     }
   
-    @media (max-width: 640px) {
+    @media screen and  (max-width: 640px) {
       .review { flex: 0 0 100%; }
     }
 
@@ -806,7 +814,7 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
   </style>
   
   <div class="container">
-    <h2>Відгуки про нас</h2>
+    <h2 class="reviews-title">Відгуки про нас</h2>
     <div class="review-container" id="reviews">
     </div>
     <br>
@@ -944,9 +952,129 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
       <div class="container">
     <!-- <h2 class="faq">Запитували — відповідаємо<h2>
       <br> -->
-    <h2 class="reviews_m">Відгуки про нас<h2>
-      <br>
-    <h2 class="news">Слідкуйте за нашими новинами<h2>
+      <title>Facebook адаптивний iframe</title>
+<style>
+
+    .news_title{
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #0c0c0c;
+        text-transform: none;
+        padding-bottom: 24px;
+        text-align: start;
+    }
+
+  .fb-frame {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    border: none;
+    overflow: hidden;
+  }
+
+    .link-news{
+        color:#1E6BC4;
+    }
+    .p-news{
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .news_main{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+.news_facebook {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-block: 20px;
+  align-items: center; /* Щоб блоки по центру */
+}
+
+/* Дочірні блоки — обмежуємо ширину */
+.news_text,
+.news_fb {
+  width: 100%;
+  max-width: 580px;
+}
+
+/* Робимо в два стовпці на великих екранах */
+@media screen and (min-width: 768px) {
+    .news_title{
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 0.91;
+        letter-spacing: -0.02em;
+        color: #0c0c0c;
+        text-transform: none;
+        padding-bottom: 40px;
+    }
+  .news_facebook {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .news_text,
+  .news_fb {
+    width: 50%;
+  }
+}
+
+/* Дві колонки лише з 1280px */
+@media screen and (min-width: 1280px) {
+  .news_main{
+       display: flex;
+       flex-direction: row;
+       gap: 40px;
+   }
+
+   .news_facebook {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .news_text,
+  .news_fb {
+    width: 100%;
+    max-width: 580px;
+  }
+}
+</style>
+
+<h2 class="news_title">Слідкуйте за нашими новинами</h2>
+
+<div class="news_main">
+    <div class="news_text">
+      <p class="p-news">
+        У цьому блоці відображаються актуальні новини та оголошення нашої лікарні. Ми публікуємо важливу інформацію для пацієнтів та їхніх родин, розповідаємо про нові можливості, проєкти та події.
+      </p>
+      <p class="p-news">
+        Переглядайте стрічку новин нижче або відвідайте нашу <a class="link-news" href="https://www.facebook.com/RivneODL" target="_blank">офіційну Facebook-сторінку</a>, щоб бути в курсі всього, що відбувається в закладі.
+      </p>
+    </div>
+<div id="fb-root"></div>
+<div class="fb-page" 
+    data-href="https://www.facebook.com/RivneODL" 
+    data-tabs="timeline" 
+    data-width="500" 
+    data-height="500" 
+    data-small-header="false" 
+    data-adapt-container-width="true" 
+    data-hide-cover="false" 
+    data-show-facepile="true">
+    <blockquote cite="https://www.facebook.com/RivneODL" class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/RivneODL">Рівненська обласна дитяча лікарня / Rivne regional children’s hospital</a>
+    </blockquote>
+</div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v23.0"></script>
+</div>
 
       </div>
 
