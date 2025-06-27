@@ -1,33 +1,41 @@
-<!--https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec
-
-<div id="reviews"></div>
-<script>
-console.log("ok");
-</script>
-
-<script>
-fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Izg91vaIvYZ4fefpFPemrWbvFCIjK5pe36HCpA/exec")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("reviews");
-    console.log(data);
-    
-    data.forEach(r => {
-      container.innerHTML += `
-        <div class="review">
-          <h4>${r["name"]}</h4>
-          <p>⭐️ ${r["reiting"]}/5</p>
-          <p>${r["text"]}</p>
-          <small>${r["data"]}</small>
-          <hr>
-        </div>`;
-    });
-  });
-</script>-->
-
-<!-- NEW-->
-
 <style>
+    .reviews-title{
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #0c0c0c;
+        text-transform: none;
+        padding-bottom: 24px;
+        padding-top: 24px;
+        text-align: start;
+    }
+    @media screen and  (min-width: 640px) {
+        .reviews-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .reviews-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+
     .review-container {
       display: flex;
       gap: 1rem;
@@ -97,11 +105,11 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
       border-radius: 3px;
     }
   
-    @media (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
       .review { flex: 0 0 calc(100% / 2 - 1rem); }
     }
   
-    @media (max-width: 640px) {
+    @media screen and  (max-width: 640px) {
       .review { flex: 0 0 100%; }
     }
 
@@ -112,7 +120,7 @@ fetch("https://script.google.com/macros/s/AKfycbyysjtF1HI7h4-mQFPkzQxmdviXv8X6Iz
   </style>
   
   <div class="container">
-    <h2>Відгуки про нас</h2>
+    <h2 class="reviews-title">Відгуки про нас</h2>
     <div class="review-container" id="reviews">
     </div>
     <br>
