@@ -1,0 +1,19 @@
+.coll-centr{
+    padding-top: 100px;
+}
+
+.coll-centr-text{
+    font-size: 24px;
+    padding: 10px;
+}
+
+.li-telephon{
+    font-size: 24px;
+    padding: 10px;
+}
+
+.li-telephon:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #1276a0;
+}

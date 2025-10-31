@@ -1,16 +1,3 @@
-<!-- <script>
-    function updateSlideImages() {
-      const isMobile = window.innerWidth <= 767;
-      document.querySelectorAll('.swiper-slide').forEach(slide => {
-        const img = isMobile ? slide.dataset.imgMobile : slide.dataset.imgDesktop;
-        slide.style.backgroundImage = `url('${img}')`;
-      });
-    }
-  
-    window.addEventListener('load', updateSlideImages);
-    window.addEventListener('resize', updateSlideImages);
-  </script>-->
-  
 <section class="hero">
     <div class="container ">
     <div class="hero-container">
@@ -21,11 +8,9 @@
                 </div>
             </div>
             <div class="hero-button">
-                <!-- S<p>OK</p>-->
-                <button class="hero-button-service" type="button">Записатись Он-лайн</button>
-                <button class="hero-button-service" type="button">Кол-центр</button>
-                <button class="hero-button-service" type="button">Програма медичних гарантій(НСЗУ)</button>
-                <button class="hero-button-service" type="button">Платні послуги</button>
+                <button onclick="window.location.href='partials/collcentr.html'" class="hero-button-service" type="button">Кол-центр</button>
+                <button class="hero-button-service" type="button">Записатись Онлайн</button>
+                <button  class="hero-button-service" type="button">Послуги</button>
             </div>
         </div>
 
