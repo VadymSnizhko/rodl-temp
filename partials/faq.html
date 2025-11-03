@@ -1,0 +1,109 @@
+<section id="faq">
+    <div class="container">
+      <div class="side">
+        <h2>Запитували — відповідаємо</h2>
+      </div>
+  
+      <div class="ac" id="accordion">
+        <div class="ac-item">
+          <button class="ac-trigger" aria-expanded="false">
+            <span class="accordion-title">
+                Який графік роботи лікарні та її відділень?
+            </span>
+            <svg
+              class="accordion-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 15L12 9L6 15"
+                stroke="#292929"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <div class="ac-panel">
+            <p>
+               Відділення екстреної медичної допомоги, травмпункт, стаціонар працюють цілодобово, без вихідних та перерв.
+               Консультативна поліклініка / реєстратура, кол-центр:
+               <ul>
+                <li>
+                    Понеділок – п’ятниця: 08:00 – 16:00
+                </li>
+                <li>
+                    Субота – неділя: вихідні дні
+                </li>
+               </ul>
+               <ul>
+                <li>(0362) 460-480</li>
+                <li>(099) 2460-480</li>
+                <li>(067) 326-92-48</li>
+               </ul>
+               
+            </p>
+          </div>
+        </div>
+  
+        <div class="ac-item">
+          <button class="ac-trigger el-1" aria-expanded="false">
+            <span class="accordion-title">
+                Як потрапити на прийом до вузького спеціаліста/діагностичні послуги?
+            </span>
+            <svg
+              class="accordion-icon"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 15L12 9L6 15"
+                stroke="#292929"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+          <div class="ac-panel">
+            <p>
+                Щоб записатись на прийом до вузькопрофільного лікаря (наприклад, кардіоревматолога, невролога, ендокринолога, ортопеда тощо), потрібно дотримуватися такого порядку:
+                <ol>
+                    <li>Отримайте електронне направлення
+               направлення від сімейного лікаря, педіатра або іншого вузькопрофільного лікаря (в межах Програми медичних гарантій);
+               або самостійне звернення ( наприклад, платні послуги).</li>
+                    <li>Запис на прийом
+               Здійснюється кількома способами:
+               через кол-центр лікарні
+               на сайті лікарні – rodl.org.ua
+               особисто у поліклініці</li>
+                    <li>Час прийому
+               Прийом спеціалістів проводиться у будні з 08:00 до 16:00, за попереднім записом.</li>
+                </ol>
+               У разі термінової ситуації – звертайтесь через відділення ектренної медичної допмоги (цілодобово).
+            </p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+  <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    new Accordion('#accordion', {
+      duration: 300, // скорость анимации (в миллисекундах)
+      showMultiple: false, // можно ли открывать сразу несколько блоков
+      openOnInit: [0], // можно указать, какой аккордеон открыть при загрузке (например, 0 - первый)
+      elementClass: 'ac-item', // класс элемента
+      triggerClass: 'ac-trigger', // класс триггера
+      panelClass: 'ac-panel', // класс панели
+      activeClass: 'is-active' // класс для открытого элемента
+    });
+  });
+
+  </script>
