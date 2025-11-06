@@ -482,9 +482,12 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 <script>
     
     const basePath = window.location.origin+"/rodl-temp"; // автоматично https://rivneoblchildhospital.gov.ua
-           
+    //const basePath = import.meta.env.BASE_URL; // автоматично /rodl-temp/ на GitHub
+       
     async function loadNews() {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbxZg8iizYwUIGRxq7AUuVC6_pqV8eEdeJgvle4IFy65ieFpZbu6XchC1ITZm4Pb9kae/exec');
+        const res = await fetch('https://script.google.com/macros/s/AKfycbxZg8iizYwUIGRxq7AUuVC6_pqV8eEdeJgvle4IFy65ieFpZbu6XchC1ITZm4Pb9kae/exec?key=rodl_news_2025_key');
+      //  .then(r => r.json())
+      //  .then(data => console.log(data));
         const news = await res.json();
         const container = document.getElementById('news-list');
 
@@ -495,7 +498,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
              const imgSrc = n["Фото preview"].trim().replace(/^\//, ""); // прибираємо початковий слеш
             item.className = 'news-item';
             item.innerHTML = `
-      <img src="${basePath}/${imgSrc}" alt="${n["Заголовок"]}" class="news-thumb">
+      <img src="${basePath}/img/news/${imgSrc}" alt="${n["Заголовок"]}" class="news-thumb">
       <h3>${n["Заголовок"]}</h3>
       <p class="preview-text">${n["Текст preview"]}</p>
       <div class="news-footer">
