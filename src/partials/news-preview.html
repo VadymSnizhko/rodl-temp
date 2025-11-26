@@ -1,0 +1,134 @@
+
+<style>
+
+    .news-title{
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #0c0c0c;
+        text-transform: none;
+        padding-bottom: 24px;
+        padding-top: 24px;
+        text-align: start;
+    }
+    @media screen and  (min-width: 640px) {
+        .news-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .news-title{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 0.91;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+            text-transform: none;
+            padding-bottom: 40px;
+            padding-top: 40px;
+        }
+    }
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 16px;
+}
+
+.news-thumb {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.more-link {
+  text-decoration: none;
+  color: #0078ff;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+</style>
+<section id="news" class="container">
+    <h2 class="news-title">Останні новини</h2>
+    <div id="news-list" class="news-grid"></div>
+<!--
+    <iframe
+        src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2192188001309307%2F&show_text=false&width=267&t=0"
+        width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+        allow="clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true">
+    </iframe>
+
+    <img src="/images/news/2025.11.01/Журавльова.png">
+    -->
+</section>
+
+<script>
+    
+    const basePath = window.location.origin+"/rodl-temp"; // автоматично https://rivneoblchildhospital.gov.ua
+    //const basePath = import.meta.env.BASE_URL; // автоматично /rodl-temp/ на GitHub
+       
+    async function loadNews() {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbxZg8iizYwUIGRxq7AUuVC6_pqV8eEdeJgvle4IFy65ieFpZbu6XchC1ITZm4Pb9kae/exec?key=rodl_news_2025_key');
+      //  .then(r => r.json())
+      //  .then(data => console.log(data));
+        const news = await res.json();
+        const container = document.getElementById('news-list');
+
+
+
+        news.forEach((n, index) => {
+            const item = document.createElement('div');
+             const imgSrc = n["Фото preview"].trim().replace(/^\//, ""); // прибираємо початковий слеш
+            item.className = 'news-item';
+            item.innerHTML = `
+      <img src="${basePath}/img/news/${imgSrc}" alt="${n["Заголовок"]}" class="news-thumb">
+      <h3>${n["Заголовок"]}</h3>
+      <p class="preview-text">${n["Текст preview"]}</p>
+      <div class="news-footer">
+        <span class="date">${new Date(n["Дата"]).toLocaleDateString("uk-UA")}</span>
+        <a href="news.html?id=${index}" class="more-link">Докладніше →</a>
+      </div>
+    `;
+            container.appendChild(item);
+        });
+    }
+    loadNews();
+</script>

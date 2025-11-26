@@ -14,7 +14,7 @@
   flex-direction: column;
   gap: 8px;
 }
-/* Стили для каждого отзыва */
+/* Стили для каждого відгука */
 .reviews-items {
   display: flex;
   box-sizing: border-box;
