@@ -106,13 +106,19 @@
     //const basePath = import.meta.env.BASE_URL; // автоматично /rodl-temp/ на GitHub
        
     async function loadNews() {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbxZg8iizYwUIGRxq7AUuVC6_pqV8eEdeJgvle4IFy65ieFpZbu6XchC1ITZm4Pb9kae/exec?key=rodl_news_2025_key');
+      //  const res = await fetch('https://script.google.com/macros/s/AKfycbxZg8iizYwUIGRxq7AUuVC6_pqV8eEdeJgvle4IFy65ieFpZbu6XchC1ITZm4Pb9kae/exec?key=rodl_news_2025_key');
       //  .then(r => r.json())
       //  .then(data => console.log(data));
+
+      const res = await fetch("https://rodl-proxy.vercel.app/api/news");
+        /*.then(r => r.json())
+        .then(data => renderNews(data))
+        .catch(console.error);*/
+
         const news = await res.json();
         const container = document.getElementById('news-list');
 
-
+        //console.log(news);
 
         news.forEach((n, index) => {
             const item = document.createElement('div');
