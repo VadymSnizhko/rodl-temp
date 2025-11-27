@@ -1,0 +1,55 @@
+  .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      scroll-snap-type: x mandatory;
+  }
+
+  .carousel img {
+      height: 180px;
+      border-radius: 10px;
+      scroll-snap-align: start;
+  }
+
+  .departments-list{
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  h2{
+    padding-top: 24px;
+  }
+
+  .more-text{
+    padding-top: 12px;
+  }
+
+  .full-text{
+    padding-top: 12px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .short {
+      font-size: 18px;
+      line-height: 1.2;
+      padding-bottom: 12px;
+  }
+
+  .sector-button {
+      width: 240px;
+      height: 36px;
+      background-color: #00629b;
+      color: #fbfbfb;
+      border: 0px;
+      border-radius: 20px;
+      font-size: 18px;
+      padding: 12px,0;
+  }
+
+  .sector-button:hover {
+      background-color: #1375ae;
+  }

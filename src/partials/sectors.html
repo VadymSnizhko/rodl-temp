@@ -7,21 +7,6 @@
         <title>Рівненська обласна дитяча лікарня</title>
         <link rel="stylesheet" href="../css/styles.css" />
 </head>
-<style>
-  .carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel img {
-  height: 180px;
-  border-radius: 10px;
-  scroll-snap-align: start;
-}
-
-</style>
 <body>
   <load src="partials/header.html" icon-path="img/sprite.svg#logo" />
   <section class="coll-centr">
@@ -40,12 +25,36 @@
 
   <script>
     const basePath = window.location.origin + "/rodl-temp";
-    async function loadDepartments() {
+    /*async function loadDepartments() {
       const response = await fetch("https://rodl-proxy.vercel.app/api/departments");
       const departments = await response.json();
       console.log(departments);
       renderDepartments(departments);
-    }
+    }*/
+
+    /* Use LocalStorage */
+
+    async function loadDepartments() {
+        const cached = localStorage.getItem("departments");
+        const cachedTime = localStorage.getItem("departments_time");
+
+        const now = Date.now();
+        const DAY = 24 * 60 * 60 * 1000;
+
+        if (cached && cachedTime && (now - cachedTime) < DAY) {
+          console.log("Loaded from cache");
+          return renderDepartments(JSON.parse(cached));
+        }
+
+        const response = await fetch("https://rodl-proxy.vercel.app/api/departments");
+        const data = await response.json();
+
+        // зберегти на добу
+        localStorage.setItem("departments", JSON.stringify(data));
+        localStorage.setItem("departments_time", now);
+
+        renderDepartments(data);
+      }
 
     function renderDepartments(list) {
       const container = document.getElementById("departments-list");
@@ -62,13 +71,13 @@
           <div class="dep-header">
             <h2>${dep["Назва"]}</h2>
             <p class="short">${dep["Короткий опис"]}</p>
-            <button class="toggle" data-id="${idx}">Розгорнути ↓</button>
+            <button class="toggle sector-button" data-id="${idx}">Докладніше ↓</button>
           </div>
 
           <div class="dep-full" id="dep-${idx}" style="display:none;">
-            <p><b>Телефон:</b> ${dep["Телефон"]}</p>
-            <p><b>Керівник:</b> ${dep["Керівник (посада/ПІБ/спеціальність)"]}</p>
-            <p><b>Старша медсестра:</b> ${dep["Старша медсестра"]}</p>
+            <p class="more-text"><b>Телефон:</b> ${dep["Телефон"]}</p>
+            <p class="more-text"><b>Керівник:</b> ${dep["Керівник (посада/ПІБ/спеціальність)"]}</p>
+            <p class="more-text"><b>Старша медсестра:</b> ${dep["Старша медсестра"]}</p>
             <p class="full-text">${dep["Повний опис"]}</p>
 
             <div class="carousel">
@@ -94,13 +103,12 @@
             btn.innerText = "Згорнути ↑";
           } else {
             block.style.display = "none";
-            btn.innerText = "Розгорнути ↓";
+            btn.innerText = "Докладніше ↓";
           }
         });
       });
     }
 
-    // 🔥 Викликаємо завантаження
     loadDepartments();
   </script>
 </body>
