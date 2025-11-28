@@ -313,11 +313,46 @@
             </div>
           </div>
         `;
-
+          parseTelephones(dep["Телефон"])
         container.appendChild(item);
       });
 
       initToggle();
+    }
+
+    function parseTelephones(value){
+      const arrayTelephone = [];
+      let cleanedArray = [];
+      const separete1 = value.indexOf(";");
+      const separete2 = value.indexOf(",");
+      if(separete1 > 0 || separete2 > 0)
+      {
+        if(separete1 > 0){
+          arrayTelephone.push(...value.split(";"));
+          console.log(arrayTelephone);
+          cleanedArray = createLinkTelephone(arrayTelephone);
+          //cleanedArray = arrayTelephone.map(item => String(item).replace(/[- ()]/g, ""));
+        }
+          
+        if (separete2 > 0){
+          arrayTelephone.push(...value.split(","));
+          cleanedArray = createLinkTelephone(arrayTelephone);
+          //cleanedArray = arrayTelephone.map(item => String(item).replace(/[- ()]/g, ""));
+        }
+          
+      }
+          console.log(cleanedArray);
+    }
+
+    function createLinkTelephone(params) {
+      clearPhone = params.map(item => String(item).replace(/[- ()]/g, ""));
+     //console.log(clearPhone.length)
+      /* let makeLink;
+
+      if(clearPhone.lenght() === 6){
+        makeLink = '<a href="tel:+380362'+params+'><u>(0362) 65-36-57</u></a>';
+      }*/
+      return clearPhone /*makeLink;*/
     }
 
     function initToggle() {
