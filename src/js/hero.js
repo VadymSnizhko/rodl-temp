@@ -1,5 +1,11 @@
-import Swiper from 'swiper';
-import "swiper/css";
+//import Swiper from 'swiper';
+//import Swiper from 'swiper'; // <-- ДОДАЄМО Navigation та Keyboard
+//import "swiper/css";
+
+
+// Імпорт CSS для окремих модулів, якщо це потрібно (зазвичай для Navigation та Pagination)
+//import 'swiper/css/navigation'; 
+//import 'swiper/css/keyboard'; // (зазвичай не потрібно окремого CSS для Keyboard)
 /*import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { Review } from '/src/types/reviews.ts';*/

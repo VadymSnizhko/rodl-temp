@@ -1,6 +1,15 @@
 
+
+function test() {
+  console.log("test ok");
+}
+
+test();
 import "../src/js/hero.js";
 import "../src/js/faq.js";
+import "../src/js/fetch-news.js";
+
+
 (() => {
   const refs = {
     // Додати атрибут data-modal-open на кнопку відкриття
