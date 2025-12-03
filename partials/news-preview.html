@@ -1,91 +1,4 @@
 
-<style>
-
-    .news-title{
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: #0c0c0c;
-        text-transform: none;
-        padding-bottom: 24px;
-        padding-top: 24px;
-        text-align: start;
-    }
-    @media screen and  (min-width: 640px) {
-        .news-title{
-            font-weight: 600;
-            font-size: 48px;
-            line-height: 0.91;
-            letter-spacing: -0.02em;
-            color: #0c0c0c;
-            text-transform: none;
-            padding-bottom: 40px;
-            padding-top: 40px;
-        }
-    }
-    
-    @media screen and (min-width: 1024px) {
-        .news-title{
-            font-weight: 600;
-            font-size: 48px;
-            line-height: 0.91;
-            letter-spacing: -0.02em;
-            color: #0c0c0c;
-            text-transform: none;
-            padding-bottom: 40px;
-            padding-top: 40px;
-        }
-    }
-
-.news-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.news-item {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  background: #fff;
-  padding: 16px;
-}
-
-.news-thumb {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.news-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.more-link {
-  text-decoration: none;
-  color: #0078ff;
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .news-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .news-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-</style>
 <section id="news" class="container">
     <h2 class="news-title">Останні новини</h2>
     <div id="news-list" class="news-grid"></div>
@@ -100,6 +13,22 @@
     -->
 </section>
 
+
+<script>
+  //import fs from 'fs';
+
+  async function LoadNews() {
+      console.log("Start");
+      const data = await fetch("https://rodl-proxy.vercel.app/api/news/route").then(r => r.json());
+      fs.writeFileSync('../public/news.json', JSON.stringify(data, null, 2));
+
+      console.log(data);
+    }
+
+    LoadNews();
+
+</script>
+<!--
 <script>
     
     const basePath = window.location.origin+"/rodl-temp"; // автоматично https://rivneoblchildhospital.gov.ua
@@ -137,4 +66,4 @@
         });
     }
     loadNews();
-</script>
+</>-->
