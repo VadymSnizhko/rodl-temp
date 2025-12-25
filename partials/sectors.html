@@ -5,7 +5,7 @@
         <link rel="icon" type="image/svg+xml" href="/rodl-temp/Logo.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Рівненська обласна дитяча лікарня</title>
-  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-6uHMv20c.css">
+  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-C1QmbXt0.css">
 </head>
 <body>
   <header class="header">
@@ -295,14 +295,15 @@
           .filter(key => key.startsWith("Фото") && dep[key])
           .map(key => dep[key]);
 
+          //style="display:none;
         item.innerHTML = `
           <div class="dep-header">
             <h2>${dep["Назва"]}</h2>
             <p class="short">${dep["Короткий опис"]}</p>
             <button class="toggle sector-button" data-id="${idx}">Докладніше ↓</button>
           </div>
-
-          <div class="dep-full" id="dep-${idx}" style="display:none;">
+            
+          <div class="dep-full" id="dep-${idx}" ">
             <p class="more-text"><b>Телефон:</b> ${dep["Телефон"]}</p>
             <p class="more-text"><b>Керівник:</b> ${dep["Керівник (посада/ПІБ/спеціальність)"]}</p>
             <p class="more-text"><b>Старша медсестра:</b> ${dep["Старша медсестра"]}</p>
@@ -356,16 +357,19 @@
     }
 
     function initToggle() {
+     // document.getElementById(`dep-${idx}`).classList.add('active');
       document.querySelectorAll(".toggle").forEach(btn => {
         btn.addEventListener("click", () => {
           const id = btn.dataset.id;
           const block = document.getElementById("dep-" + id);
+          
+          // Просто перемикаємо клас active
+          const isActive = block.classList.toggle('active');
 
-          if (block.style.display === "none") {
-            block.style.display = "block";
+          // Змінюємо текст кнопки залежно від наявності класу
+          if (isActive) {
             btn.innerText = "Згорнути ↑";
           } else {
-            block.style.display = "none";
             btn.innerText = "Докладніше ↓";
           }
         });
