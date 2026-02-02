@@ -19,8 +19,16 @@
     gap: 24px;
   }
 
+  .department{
+    border-radius: 30px;
+    background-color: #c0e9fa;
+    padding: 10px 20px;
+    margin-top: 20px;  
+  }
+
   h2{
     padding-top: 24px;
+    padding-bottom: 16px;
   }
 
   .more-text{
