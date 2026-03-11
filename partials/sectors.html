@@ -5,7 +5,7 @@
         <link rel="icon" type="image/svg+xml" href="/rodl-temp/Logo.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Рівненська обласна дитяча лікарня</title>
-  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-B0fkSWAy.css">
+  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-RczUKMT7.css">
 </head>
 <body>
   <header class="header">
@@ -300,7 +300,7 @@
           <div class="dep-header">
             <h2>${dep["Назва"]}</h2>
             <p class="short">${dep["Короткий опис"]}</p>
-            <button class="toggle sector-button" data-id="${idx}">Докладніше ↓</button>
+            <button class="toggle sector-button" data-id="${idx}">Докладніше ⮟</button>
           </div>
             
           <div class="dep-full" id="dep-${idx}" ">
@@ -368,9 +368,9 @@
 
           // Змінюємо текст кнопки залежно від наявності класу
           if (isActive) {
-            btn.innerText = "Згорнути ↑";
+            btn.innerText = "Згорнути ⮝";
           } else {
-            btn.innerText = "Докладніше ↓";
+            btn.innerText = "Докладніше ⮟";
           }
         });
       });
