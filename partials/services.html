@@ -11,7 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         
         <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-CX_N4GI0.css">
+  <link rel="stylesheet" crossorigin href="/rodl-temp/assets/styles-D_D8xZ1E.css">
 </head>
 
   <body>
@@ -343,42 +343,66 @@
     }
 
     fetch("https://script.google.com/macros/s/AKfycbzw-5xXLv0HbHELV-ndNmQ3TtmtQFiFq_9cGit6A4Lj_L8qR4mxojqpWhsojWBV-z5i/exec")
-            .then(res => res.json())
-            .then(data => {
+        .then(res => res.json())
+        .then(data => {
+            let rows = "";
 
-                let rows = "";
-
-                data.forEach(row => {
-
-                    if(row.service){
+            data.forEach(row => {
+                if (row.service) {
                     rows += `
-                            <tr>
-                                <td>
-                                    <a class="paybtn" href="${linkPay}" target="_blank">
-                                        ${row.price} грн
-                                    </a>
-                                </td>
-
-                                <td>${row.service}</td>
-
-                            </tr>
-                        `;
-                    }
-
-                });
-
-                $("#services tbody").html(rows);
-
-                $("#services").DataTable({
-                    pageLength: 25,
-                    language: {
-                        search: "Пошук:",
-                        lengthMenu: "Показати _MENU_",
-                        info: "Показано _START_ - _END_ з _TOTAL_",
-                    }
-                });
-
+                    <tr>
+                        <td>
+                            <button class="paybtn copy-btn" data-link="${row.paylink}">
+                                ${row.price} грн
+                            </button>
+                        </td>
+                        <td>${row.service}</td>
+                    </tr>
+                `;
+                }
             });
+
+            // 1. Спочатку вставляємо дані в DOM
+            $("#services tbody").html(rows);
+
+            // 2. Тепер ініціалізуємо DataTable
+            $("#services").DataTable({
+                pageLength: 25,
+                language: {
+                    search: "Пошук:",
+                    lengthMenu: "Показати _MENU_",
+                    info: "Показано _START_ - _END_ з _TOTAL_",
+                }
+            });
+
+            // 3. Функція копіювання (можна винести за межі fetch)
+            async function copyToClipboard(text) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    alert('Посилання скопійовано: ' + text); // Для тесту додамо alert
+                } catch (err) {
+                    console.error('Не вдалося скопіювати: ', err);
+                }
+            }
+
+            // 4. ДЕЛЕГУВАННЯ: вішаємо клік на таблицю, але реагуємо лише на кнопки .copy-btn
+            // Знаходимо таблицю і вішаємо один обробник
+            document.querySelector('#services').addEventListener('click', (event) => {
+                // Шукаємо, чи клікнули ми саме по кнопці з класом .copy-btn
+                const btn = event.target.closest('.copy-btn');
+
+                if (btn) {
+                    // 1. Отримуємо посилання з дата-атрибута кнопки
+                    const paymentLink = linkPay;// btn.dataset.link;
+                    // 3. Копіюємо текст у буфер (асинхронно)
+                    copyToClipboard(paymentLink);
+                    // 2. Відкриваємо посилання ВІДРАЗУ (до await), щоб браузер не заблокував вікно
+                    window.open(paymentLink, '_blank');
+
+
+                }
+            });
+        });
 
     </script>
 
